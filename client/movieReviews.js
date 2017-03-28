@@ -2,19 +2,27 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import Main from './components/Main';
-import MovieList from './components/MovieList';
-import MovieDetails from './components/MovieDetails';
+import App from './components/App';
+import tvShowPage from './components/tvShowPage';
+import tvShowDetails from './components/tvShowDetails';
+import store, { History } from './store/store';
+import { Provider } from 'react-redux';
+import { loadTVShows } from './actions/tvShows';
 
 //import react router deps
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
+store.dispatch(loadTVShows());
+
+
 const router = (
-    <Router history={browserHistory}>
-		<Route path="/" component={Main}>
-			<IndexRoute component={MovieList}></IndexRoute>
-			<Route path="/view/:movie" component={MovieDetails}></Route>
-		</Route>
-	</Router>
+	<Provider store={store}>
+	    <Router history={History}>
+			<Route path="/" component={App}>
+				<IndexRoute component={tvShowPage}></IndexRoute>
+				<Route path="/view/:tvshowId" component={tvShowDetails}></Route>
+			</Route>
+		</Router>
+	</Provider>
 )
 render(router, document.getElementById('root'));
