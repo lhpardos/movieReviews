@@ -6,7 +6,7 @@ const tvShowList = React.createClass({
 		const { tvShow, i } = this.props;
 		return (
 			<div className="tvShowDetails-photo">
-				<Link to={`/view/${tvShow.name}`}>
+				<Link to={`/view/${tvShow.id}`}>
 					<p>{tvShow.name}</p>
 				</Link>
 				

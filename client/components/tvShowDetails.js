@@ -1,16 +1,32 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as tvShowsData from '../actions/tvShows';
 
 const tvShowDetails = React.createClass({
+	componentWillMount() {
+	    const { tvshowId } = this.props.params;
+
+	    this.props.loadTVShowDetail(tvshowId);
+	},
 	render(){
-		const { tvshowId } = this.props.params;
-		const i  = this.props.tvShows.findIndex((tvShow) => tvShow.name === tvshowId);
-		const show = this.props.tvShows[i];
+
 		return (
 			<div className="tvShowDetails-photo">
-				<p>{show.overview}</p>
+				<p>{this.props.tvShowsData.number_of_seasons}</p>
 			</div>
 		)
 	}
 });
 
-export default tvShowDetails;
+function mapStateToProps (state, ownProps) {
+  return {
+    tvShowsData: state.tvShowsData
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(tvShowsData, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(tvShowDetails);
