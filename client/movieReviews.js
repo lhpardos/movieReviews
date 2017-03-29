@@ -2,12 +2,19 @@
 
 import React from 'react';
 import { render } from 'react-dom';
+
+//import css
+import css from './styles/style.styl';
+
+//import components
 import App from './components/App';
 import tvShowPage from './components/tvShowPage';
 import tvShowDetails from './components/tvShowDetails';
 import tvShowSeasonDetails from './components/tvShowSeasonDetails';
-import store, { History } from './store/store';
+
+//import redux
 import { Provider } from 'react-redux';
+import store, { History } from './store/store';
 import { loadTVShows } from './actions/tvShows';
 
 //import react router deps

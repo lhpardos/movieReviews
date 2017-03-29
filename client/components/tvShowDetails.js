@@ -15,7 +15,7 @@ const tvShowDetails = React.createClass({
 		const { tvshowId } = this.props.params;
 
 		return (
-			<div className="tvShowDetails-photo">
+			<div className="tvShowDetails">
 			{Array.apply(null, Array(this.props.tvShowsData.number_of_seasons)).map((item, i) =>
 			 	<Link to={`/view/${tvshowId}/season/${i+1}`}>
 					<p>Season {i+1}</p>

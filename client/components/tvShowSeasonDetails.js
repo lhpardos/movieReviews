@@ -15,7 +15,7 @@ const tvShowSeasonDetails = React.createClass({
 	render(){
 		const { seasonId } = this.props.params;
 		return (
-			<div className="tvShowSeasonDetails-photo">
+			<div className="tvShowSeasonDetails">
 			Season {seasonId}
 			{this.props.tvShowsSeason.episodes.map((tvShowSeason, i) => <h3>{i+1}. {tvShowSeason.name}</h3> )}
 

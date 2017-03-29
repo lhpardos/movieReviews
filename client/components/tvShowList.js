@@ -5,12 +5,13 @@ const tvShowList = React.createClass({
 	render(){
 		const { tvShow, i } = this.props;
 		return (
-			<div className="tvShowDetails-photo">
+			<li className="tvShowList">
 				<Link to={`/view/${tvShow.id}`}>
-					<p>{tvShow.name}</p>
+					<span>{tvShow.name}</span>
+					<i class="fa fa-chevron-right" aria-hidden="true"></i>
 				</Link>
 				
-			</div>
+			</li>
 		)
 	}
 });

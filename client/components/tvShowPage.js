@@ -5,9 +5,9 @@ const tvShowPage = React.createClass({
 	render(){
 		
 		return (
-			<div className="tvShowPage-photo">
+			<ul className="tvShowPage">
 				{this.props.tvShows.map((tvShow, i) => <Photo {...this.props} key={i} i={i} tvShow={tvShow} />)}
-			</div>
+			</ul>
 		)
 	}
 });
