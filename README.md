@@ -1,7 +1,9 @@
 # movieReviews
 App with react and redux
 
-For run the application:
+Instructions for run the application.
+
+Install dependencies
 
 $ npm install
 
