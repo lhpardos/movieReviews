@@ -14,6 +14,14 @@ class dataApi {
       return error;
     });
   }
+
+  static getTVShowSeason(id, season){
+    return fetch('https://api.themoviedb.org/3/tv/'+ id +'/season/'+ season +'?api_key=cf0235f77162a0234a1243489af0f917&language=en-US').then(response => {
+      return response.json();
+    }).catch(error => {
+      return error;
+    });
+  }
 }
 
-export default dataApi;  
+export default dataApi;

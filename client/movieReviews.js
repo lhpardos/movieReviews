@@ -5,6 +5,7 @@ import { render } from 'react-dom';
 import App from './components/App';
 import tvShowPage from './components/tvShowPage';
 import tvShowDetails from './components/tvShowDetails';
+import tvShowSeasonDetails from './components/tvShowSeasonDetails';
 import store, { History } from './store/store';
 import { Provider } from 'react-redux';
 import { loadTVShows } from './actions/tvShows';
@@ -21,6 +22,7 @@ const router = (
 			<Route path="/" component={App}>
 				<IndexRoute component={tvShowPage}></IndexRoute>
 				<Route path="/view/:tvshowId" component={tvShowDetails}></Route>
+				<Route path="/view/:tvshowId/season/:seasonId" component={tvShowSeasonDetails}></Route>
 			</Route>
 		</Router>
 	</Provider>

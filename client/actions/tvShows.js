@@ -32,3 +32,19 @@ export function loadTVShowDetailSuccess(tvShowsData) {
       console.log(tvShowsData);
   return {type: 'LOAD_TVSHOWS_DETAILS_SUCCESS', tvShowsData: tvShowsData};
 }
+
+export function loadTVShowSeasonDetail(id, season) {  
+  return function(dispatch) {
+    return dataApi.getTVShowSeason(id, season).then(tvShowsSeason => {
+      dispatch(loadTVShowSeasonDetailSuccess(tvShowsSeason));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+export function loadTVShowSeasonDetailSuccess(tvShowsSeason) {  
+  console.log("loadTVShowSeasonDetailSuccess action y tvshowsData vale.....");
+      console.log(tvShowsSeason);
+  return {type: 'LOAD_TVSHOWS_SEASON_DETAILS_SUCCESS', tvShowsSeason: tvShowsSeason};
+}

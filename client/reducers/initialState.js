@@ -1,4 +1,5 @@
 export default {  
   tvShows: [],
-  tvShowsData: []
+  tvShowsData: [],
+  tvShowsSeason: []
 }
