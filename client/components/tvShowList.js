@@ -6,12 +6,14 @@ const tvShowList = React.createClass({
 		const { tvShow, configData, i } = this.props;
 
 		return (
-			<li className="tvShowList">
+			
 				<Link to={`/view/${tvShow.id}`}>
+				<li className="tvShowList">
 					<span>{tvShow.name}</span>
 					<span className="fa fa-chevron-right"></span>
+				</li>
 				</Link>
-			</li>
+			
 		)
 	}
 });

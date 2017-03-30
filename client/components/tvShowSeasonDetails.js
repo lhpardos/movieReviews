@@ -24,7 +24,7 @@ const tvShowSeasonDetails = React.createClass({
 				<div className="episodes">
 				<h2> Episodes list: {tvShowsSeason.name}</h2>
 					{tvShowsSeason.episodes.map((tvShowSeason, i) => 
-						<h3>{i+1}. {tvShowSeason.name} .........................{tvShowSeason.air_date}</h3> 
+						<h3 key={i}>{i+1}. {tvShowSeason.name} .........................{tvShowSeason.air_date}</h3> 
 					)}
 				</div>
 			</div>

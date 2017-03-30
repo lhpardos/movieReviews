@@ -33,7 +33,7 @@ const tvShowDetails = React.createClass({
 				<h2>Seasons</h2>
 				{Array.apply(null, Array(tvShowsData.number_of_seasons)).map((item, i) =>
 				 	<Link to={`/view/${tvshowId}/season/${i+1}`}>
-						<span>Season {i+1}</span>
+						<span key={i}>Season {i+1}</span>
 					</Link>
 				)}
 
