@@ -13,15 +13,31 @@ const tvShowDetails = React.createClass({
 	},
 	render(){
 		const { tvshowId } = this.props.params;
+		const { tvShowsData, configData} = this.props;
 
 		return (
 			<div className="tvShowDetails">
-			{Array.apply(null, Array(this.props.tvShowsData.number_of_seasons)).map((item, i) =>
-			 	<Link to={`/view/${tvshowId}/season/${i+1}`}>
-					<p>Season {i+1}</p>
-				</Link>
-			)}
+				<div className="tvShowCard">
+					<div className="poster">
+						<img src={`${configData.secure_base_url}${configData.poster_sizes[2]}${tvShowsData.poster_path}`}/>
+					</div>
+					<div className="data">
+						<h2><strong>{tvShowsData.name}</strong></h2>
+						<p><strong>Description:</strong> {tvShowsData.overview}</p>
+						<p><strong>Number of episodes:</strong> {tvShowsData.number_of_episodes}</p>
+						<span><strong>Last date in air:</strong> {tvShowsData.last_air_date}</span>
+					</div>
+				</div>
+				
+				<div className="seasonList">
+				<h2>Seasons</h2>
+				{Array.apply(null, Array(tvShowsData.number_of_seasons)).map((item, i) =>
+				 	<Link to={`/view/${tvshowId}/season/${i+1}`}>
+						<span>Season {i+1}</span>
+					</Link>
+				)}
 
+				</div>
 			</div>
 		)
 	}

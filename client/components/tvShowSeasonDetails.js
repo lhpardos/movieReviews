@@ -14,11 +14,19 @@ const tvShowSeasonDetails = React.createClass({
 	},
 	render(){
 		const { seasonId } = this.props.params;
+		const { tvShowsSeason, configData } = this.props;
+
 		return (
 			<div className="tvShowSeasonDetails">
-			Season {seasonId}
-			{this.props.tvShowsSeason.episodes.map((tvShowSeason, i) => <h3>{i+1}. {tvShowSeason.name}</h3> )}
-
+				<div className="poster">
+					<img src={`${configData.secure_base_url}${configData.poster_sizes[2]}${tvShowsSeason.poster_path}`}/>
+				</div>
+				<div className="episodes">
+				<h2> Episodes list: {tvShowsSeason.name}</h2>
+					{tvShowsSeason.episodes.map((tvShowSeason, i) => 
+						<h3>{i+1}. {tvShowSeason.name} .........................{tvShowSeason.air_date}</h3> 
+					)}
+				</div>
 			</div>
 		)
 	}
