@@ -3,9 +3,10 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as tvShowsSeason from '../actions/tvShows';
 import { Link } from 'react-router';
+import Spinner from './Spinner';
 
 const tvShowSeasonDetails = React.createClass({
-	componentWillMount() {
+	componentDidMount() {
 	    const { seasonId } = this.props.params;
 	    const { tvshowId } = this.props.params;
 	    //const seasonLength = this.props.tvShowsSeason.number_of_seasons;
@@ -16,7 +17,10 @@ const tvShowSeasonDetails = React.createClass({
 		const { seasonId } = this.props.params;
 		const { tvShowsSeason, configData } = this.props;
 
-		return (
+		if(tvShowsSeason.episodes === undefined){
+			return (<Spinner />)
+		}else{
+			return (
 			<div className="tvShowSeasonDetails">
 				<div className="poster">
 					<img src={`${configData.secure_base_url}${configData.poster_sizes[2]}${tvShowsSeason.poster_path}`}/>
@@ -24,11 +28,11 @@ const tvShowSeasonDetails = React.createClass({
 				<div className="episodes">
 				<h2> Episodes list: {tvShowsSeason.name}</h2>
 					{tvShowsSeason.episodes.map((tvShowSeason, i) => 
-						<h3 key={i}>{i+1}. {tvShowSeason.name} .........................{tvShowSeason.air_date}</h3> 
+						<h3 key={i}>{i+1}. {tvShowSeason.name}</h3> 
 					)}
 				</div>
-			</div>
-		)
+			</div>)
+		}
 	}
 });
 
