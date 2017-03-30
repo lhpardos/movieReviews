@@ -30,7 +30,7 @@ const tvShowPage = React.createClass({
 			<span className="presentation">Select the tv show of the popular list, if you wanna see their details and you own seasons.</span>
 			<span className="presentation">If don't see what you like, then search in the input.</span>
 				<div className="search">
-					<input ref={(input) => this.searchInput = input} type="text" placeholder="Type tvshow..." onBlur={(e, timer) => this.handleChange(e)}></input>
+					<input ref={(input) => this.searchInput = input} type="text" placeholder="Type tvshow..." onChange={(e, timer) => this.handleChange(e)}></input>
 				</div>
 				{this.props.tvShows.map((tvShow, i) => <Photo {...this.props} key={i} i={i} tvShow={tvShow} />)}
 			</ul>
