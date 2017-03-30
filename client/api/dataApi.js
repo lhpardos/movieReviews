@@ -1,4 +1,12 @@
 class dataApi {  
+
+   static getFilteredTVShows(query) {
+    return fetch('https://api.themoviedb.org/3/search/tv?api_key=cf0235f77162a0234a1243489af0f917&language=en-US&query='+query+'&page=1').then(response => {
+      return response.json();
+    }).catch(error => {
+      return error;
+    });
+  }
   static getAllTVShows() {
     return fetch('https://api.themoviedb.org/3/tv/popular?api_key=cf0235f77162a0234a1243489af0f917&language=en-US&page=1').then(response => {
       return response.json();

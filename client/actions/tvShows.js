@@ -1,6 +1,20 @@
 import dataApi from '../api/dataApi';
 import * as types from './actionTypes';
 
+export function filterTVShows(query) {  
+  return function(dispatch) {
+    return dataApi.getFilteredTVShows(query).then(tvShows => {
+      dispatch(filterTVShowsSuccess(tvShows));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+export function filterTVShowsSuccess(tvShows) {  
+  return {type: 'LOAD_TVSHOWS_SUCCESS', tvShows: tvShows.results};
+}
+
 export function loadTVShows() {  
   return function(dispatch) {
     return dataApi.getAllTVShows().then(tvShows => {
@@ -12,8 +26,6 @@ export function loadTVShows() {
 }
 
 export function loadTVShowsSuccess(tvShows) {  
-	console.log("loadTVShowsSuccess action y tvshows vale.....");
-      console.log(tvShows.results);
   return {type: 'LOAD_TVSHOWS_SUCCESS', tvShows: tvShows.results};
 }
 
@@ -28,8 +40,6 @@ export function loadTVShowDetail(id) {
 }
 
 export function loadTVShowDetailSuccess(tvShowsData) {  
-  console.log("loadTVShowDetailSuccess action y tvshowsData vale.....");
-      console.log(tvShowsData);
   return {type: 'LOAD_TVSHOWS_DETAILS_SUCCESS', tvShowsData: tvShowsData};
 }
 
@@ -44,8 +54,6 @@ export function loadTVShowSeasonDetail(id, season) {
 }
 
 export function loadTVShowSeasonDetailSuccess(tvShowsSeason) {  
-  console.log("loadTVShowSeasonDetailSuccess action y tvshowsData vale.....");
-      console.log(tvShowsSeason);
   return {type: 'LOAD_TVSHOWS_SEASON_DETAILS_SUCCESS', tvShowsSeason: tvShowsSeason};
 }
 
@@ -60,8 +68,6 @@ export function loadConfig() {
 }
 
 export function loadConfigSuccess(configData) {  
-  console.log("loadConfigSuccess action y tvshows vale.....");
-      console.log(configData.images);
   return {type: 'LOAD_CONFIG_SUCCESS', configData: configData.images};
 }
 
