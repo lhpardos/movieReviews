@@ -22,6 +22,15 @@ class dataApi {
       return error;
     });
   }
+
+  static getConfigData(){
+    return fetch('https://api.themoviedb.org/3/configuration?api_key=cf0235f77162a0234a1243489af0f917').then(response => {
+      return response.json();
+    }).catch(error => {
+      return error;
+    });
+  }
+  
 }
 
 export default dataApi;

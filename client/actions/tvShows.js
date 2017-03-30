@@ -48,3 +48,20 @@ export function loadTVShowSeasonDetailSuccess(tvShowsSeason) {
       console.log(tvShowsSeason);
   return {type: 'LOAD_TVSHOWS_SEASON_DETAILS_SUCCESS', tvShowsSeason: tvShowsSeason};
 }
+
+export function loadConfig() {  
+  return function(dispatch) {
+    return dataApi.getConfigData().then(configData => {
+      dispatch(loadConfigSuccess(configData));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+export function loadConfigSuccess(configData) {  
+  console.log("loadConfigSuccess action y tvshows vale.....");
+      console.log(configData.images);
+  return {type: 'LOAD_CONFIG_SUCCESS', configData: configData.images};
+}
+

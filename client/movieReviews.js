@@ -15,11 +15,12 @@ import tvShowSeasonDetails from './components/tvShowSeasonDetails';
 //import redux
 import { Provider } from 'react-redux';
 import store, { History } from './store/store';
-import { loadTVShows } from './actions/tvShows';
+import { loadTVShows , loadConfig } from './actions/tvShows';
 
 //import react router deps
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
+store.dispatch(loadConfig());
 store.dispatch(loadTVShows());
 
 
